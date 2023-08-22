@@ -172,7 +172,7 @@ class NgsiView(p.SingletonPlugin):
     def _serialize_resource(self, resource):
         # Check if NGSI resource is being created
         serialized_resource = resource
-        if resource['format'] == NGSI_REG_FORMAT:
+        if 'format' in resource and resource['format'] == NGSI_REG_FORMAT:
 
             if 'entity' not in resource or not len(resource['entity']):
                 # Raise an error, al least one entity must be provided
